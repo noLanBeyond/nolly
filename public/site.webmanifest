@@ -1,6 +1,6 @@
 {
-  "short_name": "",
-  "name": "",
+  "short_name": "nolly",
+  "name": "nolly",
   "icons": [
     {
       "src": "icon.png",
@@ -10,5 +10,5 @@
   ],
   "start_url": "/?utm_source=homescreen",
   "background_color": "#000000",
-  "theme_color": "#000000"
+  "theme_color": "#F27E63"
 }
