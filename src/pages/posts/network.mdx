@@ -1,0 +1,167 @@
+---
+slug: "network"
+title: "Basic Networking"
+date: 2020-10-03
+author: nolansym
+tags:
+  - http
+  - security
+---
+
+# OSI Model
+
+## **TIMING + SYNC**
+
+> **Processing**
+
+- **\_\_** OSI: **Physical**
+
+  **\_\_** PDU: [ **BITS** ]
+
+  **\_\_** TCP/IP: **Network Access**
+
+  **\_\_** Protocol Suite: **[ Framerelay | ATM ]**
+
+## DESTINATION + PHYSICAL ADDRESS
+
+> **Data**
+
+- **\_\_** OSI: **Data**
+
+  **\_\_** PDU: **[ FRAME ]**
+
+  **\_\_** TCP/IP: **Network Access**
+
+  **\_\_** Protocol suite: **ethernet | wifi**
+
+## [IP] DESTINATION + SOURCE LOGICAL NETWORK ADDRESS
+
+> **Need**
+
+- **\_\_** OSI: **Network**
+
+  **\_\_** PDU: **[ PACKET ]**
+
+  **\_\_** TCP/IP: **Internet**
+
+  **\_\_** Protocol suite: **[ IPv4 | IPv6 ]**
+
+## [PORT] DESTINATION + SOURCE PROCESS NUMBER
+
+> **To**
+
+- **\_\_** OSI: **Transport**
+
+  **\_\_** PDU: **[ SEGMENT ]**
+
+  **\_\_** TCP/IP: **Trasport**
+
+  **\_\_** Protocol suite: **[ TCP | UDP ]**
+
+## ENCODED APPLICATION DATA
+
+> **Seem**
+
+- **\_\_** OSI: **Session**
+
+  **\_\_** PDU: **[ DATA ]**
+
+  **\_\_** TCP/IP: **Applications**
+
+  **\_\_** Protocol suite: **[ DNS | PNP | SNMP ]**
+
+> **People**
+
+- **\_\_** OSI: **Presentation**
+
+  **\_\_** PDU: **[ DATA ]**
+
+  **\_\_** TCP/IP: **Applications**
+
+> **All**
+
+- **\_\_** OSI: **Application**
+
+  **\_\_** PDU: **[ DATA ]**
+
+  **\_\_** TCP/IP: **Applications**
+
+  **\_\_** Protocol suite: **[ HTTP | FTP | SMTP ]**
+
+# Sub-Nets
+
+> Hosts double each increment of a CIDR
+
+- **Always subtract 2 from host total:**
+
+  - **Network** ID - **First** Address
+
+  ***
+
+  - **Broadcast** - **Last** Address
+
+[x.0.0.0](https://www.notion.so/05d03209020e4284ab565218222c60bc)
+
+[255.x.0.0](https://www.notion.so/49b8d5e88a39416a9250e6c71310f2cd)
+
+[255.255.x.0](https://www.notion.so/fdd0b3a8e58646fe94e033bdfcd29703)
+
+[255.255.255.x](https://www.notion.so/279ffee8ec01434bb9d728165a25df40)
+
+# Basic linux bash scripting
+
+## Create a series of commands
+
+ex.
+
+### >> append
+
+```bash
+echo "hey again again" >> hey.txt
+```
+
+## nano
+
+- simple txt editor
+
+```bash
+nano
+
+ctrl + x
+save: y
+```
+
+# Network commands bash
+
+## ping
+
+- can I talk to **ip-address**
+
+```bash
+ping 192.168.15.1
+```
+
+## arp -a
+
+- associate ip addresses with mac addresses
+
+```bash
+arp -a
+```
+
+## netstat -ano
+
+- figure out if this machine is talking to anyone else
+- active connections running on machine
+
+```bash
+netstat -ano
+```
+
+## route
+
+- tells you where traffic is exiting
+
+```bash
+route
+```

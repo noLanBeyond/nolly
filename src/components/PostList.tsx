@@ -49,7 +49,7 @@ export default function PostList({ posts, tags, pagination }: Props) {
           padding: 0 1.5rem;
         }
         ul {
-          margin: 0;
+          margin-top: 1rem;
           padding: 0;
         }
         li {

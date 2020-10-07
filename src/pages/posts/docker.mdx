@@ -1,0 +1,154 @@
+---
+slug: "docker"
+title: "Docker Guide"
+date: 2020-10-05
+author: nolansym
+tags:
+  - ci
+  - http
+---
+
+# Docker
+
+[MORE HERE](https://btholt.github.io/complete-intro-to-containers/)
+
+[SIMPLE EXAMPLES](https://github.com/btholt/projects-for-complete-intro-to-containers)
+
+### Lifecycle
+
+- `[docker create](<https://docs.docker.com/engine/reference/commandline/create>)` creates a container but does not start it.
+- `[docker rename](<https://docs.docker.com/engine/reference/commandline/rename/>)` allows the container to be renamed.
+- `[docker run](<https://docs.docker.com/engine/reference/commandline/run>)` creates and starts a container in one operation.
+- `[docker rm](<https://docs.docker.com/engine/reference/commandline/rm>)` deletes a container.
+- `[docker update](<https://docs.docker.com/engine/reference/commandline/update/>)` updates a container's resource limits.
+
+**Notes:**
+
+Start container and keep it running
+
+- pass `-t` flag to allocate a pseudo-TTY session
+- pass `-td` to detach automatically (run in background and print container ID)
+
+Transient Container (ie. short-lived)
+
+- run `docker run --rm` to remove container after it stops
+
+Logging Driver (To run docker with a custom log driver [i.e., to syslog])
+
+- `docker run --log-driver=syslog`
+
+**Useful! allows you to start and stop a container by calling it by its name**
+
+- `docker run --name yourname docker_image`
+
+---
+
+### **Starting and Stopping**
+
+- `[docker start](<https://docs.docker.com/engine/reference/commandline/start>)` starts a container so it is running.
+- `[docker stop](<https://docs.docker.com/engine/reference/commandline/stop>)` stops a running container.
+- `[docker restart](<https://docs.docker.com/engine/reference/commandline/restart>)` stops and starts a container.
+- `[docker pause](<https://docs.docker.com/engine/reference/commandline/pause/>)` pauses a running container, "freezing" it in place.
+- `[docker unpause](<https://docs.docker.com/engine/reference/commandline/unpause/>)` will unpause a running container.
+- `[docker wait](<https://docs.docker.com/engine/reference/commandline/wait>)` blocks until running container stops.
+- `[docker kill](<https://docs.docker.com/engine/reference/commandline/kill>)` sends a SIGKILL to a running container.
+- `[docker attach](<https://docs.docker.com/engine/reference/commandline/attach>)` will connect to a running container.
+
+**Notes:**
+
+If you want to detach from a running container
+
+- `Ctrl + p, Ctrl + q`
+
+---
+
+# BUILD:
+
+> Build an image from the Dockerfile in the current directory and tag the image
+
+```bash
+docker build -t myimage:1.0 .
+```
+
+> List all images that are locally stored with the Docker Engine
+
+```bash
+docker image ls
+```
+
+> Delete an image from the local image store
+
+```bash
+docker image rm alpine:3.4
+```
+
+---
+
+# RUN:
+
+> Run a container from the Alpine version 3.9 image, name the running container “web” and expose port 5000 externally, mapped to port 80 inside the container.
+
+```bash
+docker container run --name web -p
+5000:80 alpine:3.9
+```
+
+> List the running containers (add --all to include stopped containers)
+
+```bash
+docker container ls
+```
+
+> Delete all running and stopped containers
+
+```bash
+docker container rm -f $(docker ps -aq)
+```
+
+> Print the last 100 lines of a container’s logs
+
+```bash
+docker container
+logs --tail 100 web
+```
+
+> Stop a running container through SIGTERM
+
+```bash
+docker container stop web
+```
+
+> Stop a running container through SIGKILL
+
+```bash
+docker container kill web
+```
+
+> List the networks
+
+```bash
+docker network ls
+```
+
+---
+
+# SHARE:
+
+> Pull an image from a registry
+
+```bash
+docker pull myimage:1.0
+```
+
+> Retag a local image with a new image name and tag
+
+```bash
+docker tag myimage:1.0 myrepo/
+myimage:2.0
+```
+
+> Push an image to a registry
+
+```bash
+docker push myrepo/myimage:2.0
+```

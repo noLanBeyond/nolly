@@ -3,3 +3,13 @@ tags:
     name: productive
   - slug: tips
     name: tips
+  - slug: security
+    name: security
+  - slug: http
+    name: http
+  - slug: test
+    name: test
+  - slug: pattern
+    name: pattern
+  - slug: ci
+    name: ci
