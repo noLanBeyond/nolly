@@ -1,0 +1,375 @@
+---
+slug: "productive"
+title: "Developer Productivity Guide"
+date: 2020-10-06
+author: nolansym
+tags:
+  - tips
+  - productive
+---
+
+> **List of software, shortcuts, and tooling that I simply cannot live without.**
+
+## MINDSET
+
+> **TRACKPAD OR MOUSE = OUR WORST ENEMY**
+
+> **KEYBOARD = OUR BEST FRIEND**
+
+> TRY TO IMPROVE YOUR WORKFLOW IN SMALL WAYS EVERY DAY
+
+## Rectangle
+
+> [Rectangle](https://github.com/rxhanson/Rectangle) is a window tiling manager. **I use this tool constantly**! Spend a day or two learning the keyboard shortcuts and you will navigate your machine 10x faster
+
+![](/images/blog/productive/keyboard.png)
+
+## VS Code: Keyboard Shortcuts
+
+> IMO - the only two acceptable text editors in 2020 are VIM & VS Code
+
+## File Navigation: open a file by name
+
+```bash
+command + p
+```
+
+## File Navigation: hop between two files
+
+```bash
+command + p + p
+```
+
+## Search: all files for matching word
+
+```bash
+command + shift + f
+```
+
+## Jump: line start - line end
+
+- Start
+
+```bash
+command + left arrow
+```
+
+- End
+
+```bash
+command + right arrow
+```
+
+## Delete: previous word
+
+```bash
+command + delete
+```
+
+## Jump: highlight line
+
+```bash
+command + shift + right/left arrow
+```
+
+## Jump: move cursor over each word in line
+
+```bash
+option + right/left arrow
+```
+
+## Jump: Highlight Word
+
+```bash
+option + shift + right/left arrow
+```
+
+## Select Word: next occurrence++
+
+- pre: highlight word
+
+```bash
+command + d
+```
+
+## Copy Line Up/Down
+
+```bash
+shift + option + up/down arrow
+```
+
+## Add Cursor: above/below
+
+```bash
+command + alt + up/down arrow
+```
+
+## Split Editor
+
+```bash
+command + \\
+```
+
+## Go to Symbol in file
+
+```bash
+command + shift + o
+```
+
+> There are many more useful [shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
+
+quick-tip: check your systems keyboard settings
+
+1. **Key Repeat: Fast**
+2. **Delay Until Repeat: Short**
+
+![](/images/blog/productive/keyboard.png)
+
+# VS Code: User Settings
+
+Configure what works best for you
+
+My Config:
+
+```json
+{
+  "editor.fontFamily": "Victor Mono",
+  "editor.fontLigatures": true,
+  "editor.fontWeight": "500",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          //following will be in italic (=FlottFlott)
+          "comment",
+          "entity.name.type.class", //class names
+          "keyword", //import, export, return…
+          "constant", //String, Number, Boolean…, this, super
+          "storage.modifier", //static keyword
+          "storage.type.class.js" //class keyword
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": [
+          //following will be excluded from italics (VSCode has some defaults for italics)
+          "invalid",
+          "keyword.operator",
+          "constant.numeric.css",
+          "keyword.other.unit.px.css",
+          "constant.numeric.decimal.js",
+          "constant.numeric.json"
+        ],
+        "settings": {
+          "fontStyle": ""
+        }
+      }
+    ]
+  },
+  "editor.fontSize": 15,
+  "editor.tabSize": 4,
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": true,
+  "files.autoSave": "onFocusChange",
+  "editor.suggestSelection": "first",
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "emmet.showSuggestionsAsSnippets": true,
+  "debug.node.autoAttach": "on",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "explorer.openEditors.visible": 0,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.cursorStyle": "line-thin",
+  "editor.renderIndentGuides": false,
+  "explorer.confirmDragAndDrop": false,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.matchBrackets": "never",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.wordWrapColumn": 100,
+  "window.zoomLevel": 0,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "html.format.wrapLineLength": 100,
+  "workbench.iconTheme": "eq-material-theme-icons",
+  "workbench.colorTheme": "Dobri Next -B01- Hard"
+}
+```
+
+## Favorite Theme:
+
+> [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl)
+
+Other great trending themes [here](https://vscodethemes.com/trending)
+
+## Favorite Fonts:
+
+> [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
+
+> [Victor Mono](https://github.com/rubjo/victor-mono)
+
+> [Dank Mono](https://dank.sh/)
+
+# VS Code: Extensions
+
+![](/images/blog/productive/extensions.png)
+
+## MUSTS:
+
+1. Code Spell Checker
+2. GitLens — Git supercharged
+3. Import Cost
+4. ES7 React/Redux/GraphQL/React-Native snippets
+
+---
+
+# External Terminal
+
+> Learn terminal keyboard shortcuts
+
+[Untitled](https://www.notion.so/c5a00334b00c4a60b7a0e95f6ff83924)
+
+## My default .bash_profile
+
+```bash
+#   -------------------------------
+#   SH CHEATSHEET
+#   -------------------------------
+
+	# cd !$ is an alias for the last arguement of the previous command
+		# mkdir -p make/new/directory
+		# cd !$
+
+	# push directories onto history stack, pop the last visited directory
+		# pushd a
+		# pushd b
+		# pushd c
+		# popd
+
+#   -------------------------------
+#   SH QOL CONFIGURATION
+#   -------------------------------
+
+# shopt -s cdspell
+# complete -d cd
+
+#   -------------------------------
+#   ALIAS CONFIGURATION
+#   -------------------------------
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias .......="cd ../../../../../.."
+alias ........="cd ../../../../../../.."
+alias .........="cd ../../../../../../../.."
+alias ..........="cd ../../../../../../../../.."
+alias ...........="cd ../../../../../../../../../.."
+alias ............="cd ../../../../../../../../../../.."
+alias .............="cd ../../../../../../../../../../../.."
+
+#   -------------------------------
+#   PATH CONFIGURATION
+#   -------------------------------
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \\. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \\. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+#   -------------------------------
+#   ENVIRONMENT CONFIGURATION
+#   - ex: export http_proxy=http://localhost:port
+#   - ex: export https_proxy=http://localhost:port
+#   - ex: export no_proxy="localhost, 127.0.0.*"
+#   - ex: export NO_PROXY="localhost, 127.0.0.*"
+#   -------------------------------
+
+# get current branch in git repo
+function parse_git_branch() {
+	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \\(.*\\)/\\1/'`
+	if [ ! "${BRANCH}" == "" ]
+	then
+		STAT=`parse_git_dirty`
+		echo "[${BRANCH}${STAT}]"
+	else
+		echo ""
+	fi
+}
+
+# get current status of git repo
+function parse_git_dirty {
+	status=`git status 2>&1 | tee`
+	dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
+	untracked=`echo -n "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
+	ahead=`echo -n "${status}" 2> /dev/null | grep "Your branch is ahead of" &> /dev/null; echo "$?"`
+	newfile=`echo -n "${status}" 2> /dev/null | grep "new file:" &> /dev/null; echo "$?"`
+	renamed=`echo -n "${status}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?"`
+	deleted=`echo -n "${status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
+	bits=''
+	if [ "${renamed}" == "0" ]; then
+		bits=">${bits}"
+	fi
+	if [ "${ahead}" == "0" ]; then
+		bits="*${bits}"
+	fi
+	if [ "${newfile}" == "0" ]; then
+		bits="+${bits}"
+	fi
+	if [ "${untracked}" == "0" ]; then
+		bits="?${bits}"
+	fi
+	if [ "${deleted}" == "0" ]; then
+		bits="x${bits}"
+	fi
+	if [ "${dirty}" == "0" ]; then
+		bits="!${bits}"
+	fi
+	if [ ! "${bits}" == "" ]; then
+		echo " ${bits}"
+	else
+		echo ""
+	fi
+}
+
+export PS1="\\[\\e[36m\\]@\\[\\e[m\\]\\[\\e[35m\\]\\u\\[\\e[m\\]\\[\\e[36m\\]:\\[\\e[m\\]\\[\\e[33m\\]\\W\\[\\e[m\\]\\[\\e[36m\\]\\`parse_git_branch\\`\\[\\e[m\\] "
+```
+
+---
+
+# Other Great Tools:
+
+> [Notion](https://www.notion.so/) - **How I wrote this doc in 30 minutes**
+
+> [Alfred 4](https://www.alfredapp.com/blog/announcements/alfred-4-is-here/)
+
+> [DockStation](https://dockstation.io/)
+
+> [Clipger](https://florian.github.io/clipgerapp/) - **If you don't use Alfred but want clipboard history**
+
+# Other Great Resources:
+
+> [Wes Bos Uses](https://github.com/wesbos/awesome-uses)
+
+> [Podcast - Productivity Hacks](https://syntax.fm/show/011/our-favourite-productivity-hacks)
+
+# Bonus - Great Podcasts:
+
+> [Dark Net Diaries](https://darknetdiaries.com/)
+
+> [React Podcast](https://reactpodcast.simplecast.fm/)
+
+> [Syntax FM](https://syntax.fm/)https://syntax.fm/)
